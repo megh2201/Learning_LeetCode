@@ -2,7 +2,7 @@ package easy;
 
 public class SquareRoot {
     public static void main(String[] args) {
-        int target = 0;
+        int target = 65;
         SquareRoot sr = new SquareRoot();
         System.out.println(sr.mySqrt(target));
     }
@@ -19,18 +19,31 @@ public class SquareRoot {
             while (left <= right) {
                 long mid = left + (right - left) / 2;
 
-                if ((mid * mid) > x) {
-                    right = (int) mid - 1;
-                } else
+                if ((mid * mid) <= x) {
+                    sqrt = mid;
                     left = mid + 1;
-                sqrt = mid;
+                } else
+                    right = (int) mid - 1;
             }
 
-            if (sqrt * sqrt > x)
-                return (int) sqrt - 1;
-            else
-                return (int) sqrt;
+            return (int) sqrt;
         }
     }
 }
+
+
+// while (left <= right) {
+//         long mid = left + (right - left) / 2;
+//
+//         if ((mid * mid) > x) {
+//         right = (int) mid - 1;
+//         } else
+//         left = mid + 1;
+//         sqrt = mid;
+//         }
+//
+//         if (sqrt * sqrt > x)
+//         return (int) sqrt - 1;
+//         else
+//         return (int) sqrt;
 
