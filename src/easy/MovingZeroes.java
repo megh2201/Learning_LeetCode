@@ -8,19 +8,45 @@ public class MovingZeroes {
     }
 
     public void moveZeroes(int[] nums) {
-        int checkedZeroPointer = 0;
-        int uncheckedZeroPointer = nums.length;
-        for (int i = 0; i < uncheckedZeroPointer; i++){
-            if(nums[i] != 0){
-                nums[checkedZeroPointer] = nums[i];
-                checkedZeroPointer++;
+        int checkedZeroPointer = nums.length;
+        for (int i = 0; i < nums.length; ++i) {
+            if (nums[i] == 0) {
+                checkedZeroPointer = i;
+                break;
             }
         }
-        for (int j = checkedZeroPointer; j < uncheckedZeroPointer; j++){
-            nums[j] = 0;
+
+        for (int i = checkedZeroPointer + 1 ; i < nums.length; ++i) {
+            if(nums[i] !=0){
+                nums[checkedZeroPointer] = nums[i];
+                nums[i] = 0;
+                ++checkedZeroPointer;
+            }
         }
 
-        for(int i=0; i< nums.length;i++)
+        for (int i = 0; i < nums.length; i++)
             System.out.println(nums[i]);
     }
 }
+
+
+
+
+
+
+
+
+    /*int checkedZeroPointer = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+        if (nums[i] != 0) {
+        nums[checkedZeroPointer] = nums[i];
+        checkedZeroPointer++;
+        }
+        }
+        for (int j = checkedZeroPointer; j < nums.length; j++) {
+        nums[j] = 0;
+        }
+
+        for (int i = 0; i < nums.length; i++)
+        System.out.println(nums[i]);*/
